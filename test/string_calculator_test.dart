@@ -5,5 +5,7 @@ void main() {
   final calc = StringCalculator();
 
   test('empty string returns 0', () => expect(calc.add(''), 0));
+  test('two numbers seperated by comma', () => expect(calc.add('1,5'), 6));
+
 
 }
