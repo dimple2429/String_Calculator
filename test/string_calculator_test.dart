@@ -23,5 +23,6 @@ void main() {
 
   test('delimiter length', () =>   expect(calc.add('//[***]\n1***2***3'), 6));
   test('multiple delimiter', () =>   expect(calc.add('//[*][%]\n1*2%3'), 6));
+  test('multiple delimiter long char', () =>   expect(calc.add('// //[***][%%]\n1***2%%3'), 6));
 
 }
