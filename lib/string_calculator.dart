@@ -34,8 +34,10 @@ class StringCalculator {
     if (negatives.isNotEmpty) {
       throw FormatException('Negative numbers not allowed: ${negatives.join(',')}');
     }
-    ///return sum
-    return numbersList.fold(0, (a , b) => a! + b);
+
+    ///7. extra numbers bigger than 1000
+    return numbersList.where((n) => n <= 1000).fold(0, (a , b) => a! + b);
+
 
   }
 }

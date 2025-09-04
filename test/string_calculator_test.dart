@@ -18,7 +18,8 @@ void main() {
       throwsA(isA<FormatException>().having((e) => e.message, 'message',
           'Negative numbers not allowed: -2,-4'))));
 
-
+  test('numbers bigger than 1000 should be ignored', ()=>
+      expect(calc.add('3,1001'), 3));
 
 
 }
