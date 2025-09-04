@@ -8,6 +8,7 @@ void main() {
   test('two numbers seperated by comma', () => expect(calc.add('1,5'), 6));
   test('multiple numbers', () => expect(calc.add('1,2,3,4'), 10));
   test('support newline delimiter', () => expect(calc.add('1\n2,3'), 6));
+  test('custom single-char delimiter', () => expect(calc.add('//;\n1;2'), 3));
 
 
 }
