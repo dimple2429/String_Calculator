@@ -14,7 +14,14 @@ class StringCalculator {
 
     final pattern = delimiters.map(RegExp.escape).join('|');
     final parts = nums.split(RegExp(pattern));
-    return parts.where((p) => p.isNotEmpty).map(int.parse).fold(0, (a,b) => a + b);
+    final ints = parts.where((p) => p.isNotEmpty).map(int.parse).toList();
+
+    final negatives = ints.where((i) => i < 0).toList();
+    if (negatives.isNotEmpty) {
+      throw FormatException('Negative numbers not allowed: ${negatives.join(',')}');
+    }
+
+    return ints.fold(0, (a, b) => a + b);
 
   }
 

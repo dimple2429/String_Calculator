@@ -9,6 +9,9 @@ void main() {
   test('multiple numbers', () => expect(calc.add('1,2,3,4'), 10));
   test('support newline delimiter', () => expect(calc.add('1\n2,3'), 6));
   test('custom single-char delimiter', () => expect(calc.add('//;\n1;2'), 3));
+  test('negative numbers', () => expect(() => calc.add('1,-2,3,-4'),
+      throwsA(isA<FormatException>().having((e) => e.message, 'message',
+          'Negative numbers not allowed: -2,-4'))));
 
 
 }
