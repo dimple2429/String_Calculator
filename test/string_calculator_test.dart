@@ -21,5 +21,7 @@ void main() {
   test('numbers bigger than 1000 should be ignored', ()=>
       expect(calc.add('3,1001'), 3));
 
+  test('delimiter length', () =>   expect(calc.add('//[***]\n1***2***3'), 6));
+  test('multiple delimiter', () =>   expect(calc.add('//[*][%]\n1*2%3'), 6));
 
 }

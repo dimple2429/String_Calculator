@@ -13,7 +13,17 @@ class StringCalculator {
       final index = nums.indexOf('\n');
       final delimit = nums.substring(2, index);
       nums = nums.substring(index + 1);
-      delimiters = [delimit];
+
+
+      final regex = RegExp(r'\[([^\]]+)\]');
+      final matches = regex.allMatches(delimit).map((m) =>
+      m.group(1)!).toList();
+
+      if (matches.isNotEmpty) {
+        delimiters = matches;
+      } else {
+        delimiters = [delimit];
+      }
     }
 
 
@@ -37,6 +47,8 @@ class StringCalculator {
 
     ///7. extra numbers bigger than 1000
     return numbersList.where((n) => n <= 1000).fold(0, (a , b) => a! + b);
+
+
 
 
   }
